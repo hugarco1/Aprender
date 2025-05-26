@@ -1,0 +1,52 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+#scroll{
+    width: 100dvw;
+    height: 100dvh;
+    object-fit: cover;
+    position: fixed;
+}
+
+main{
+    height: 300dvh;
+}
+
+header{
+    background: linear-gradient(40deg, #ba3816, #a41705 40%);
+    width: 50dvw;
+    height: 50dvw;
+    border-radius: 1000px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin-top: -35dvw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation-name: sildeInDown;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+img{
+    width: 25dvw;
+    margin: 0 auto;
+    height: auto;
+    margin-bottom: 7dvw;
+}
+
+@keyframes slideInDown{
+    from{
+        transform: translate3d(-50%, -100%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate3d(-50%, 0, 0);
+        opacity: 1;
+    }
+}

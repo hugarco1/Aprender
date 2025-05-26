@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>MotoScroll</title>
+        <script type="module">
+            const MAX_FRAMES = 151;
+            const img = document.querySelector('#scroll');
+            // Altura maxima de scroll
+            let maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            window.addEventListener('resize', () => {
+                maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            })
+            window.addEventListener('scroll', () => {
+                // Posicion actual del scroll
+                const scrollPosition = window.scrollY;
+                // Calcular el porcentaje de scroll
+                const scrollFraction = scrollPosition / maxScroll;
+                // Que frame toca
+                const frame = Math.floor(scrollFraction * MAX_FRAMES) || 1;
+                // id nombre del archivo
+                const id = frame.toString().padStart(3, '0');
+                //
+                img.src = `./frames/moto-${id}.webp`;
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+            <header>
+                <img src="logo.png" alt="Itchiban - Your Way to Freedom">
+            </header>
+            <img id="scroll" src="./frames/moto-000.webp" alt="Moto chula">
+        </main>
+    </body>
+</html>
